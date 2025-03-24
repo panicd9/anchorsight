@@ -19,7 +19,7 @@ function App() {
   // useEffect(() => {
   //   (async () => {
   //     try {
-  //       const rpcUrl = (window as any).__RPC_URL__ || "https://mainnet.helius-rpc.com/?api-key=bd02be02-e741-4225-9458-f992cdac5793";
+  //       const rpcUrl = (window as any).__RPC_URL__ || "https://mainnet.helius-rpc.com/?api-key=";
   //       const connection = new Connection(rpcUrl);
 
   //       // Fetch IDL from server

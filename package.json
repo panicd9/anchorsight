@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "",
   "main": "build/src/index.js",
+  "type": "module",
   "types": "build/src/index.d.ts",
   "files": [
     "build/src",
@@ -25,8 +26,13 @@
     "anchorsight": "build/src/index.js"
   },
   "devDependencies": {
+    "@types/node": "^22.13.13",
     "gts": "^6.0.2",
-    "typescript": "^5.6.3",
-    "@types/node": "^22.7.5"
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "commander": "^13.1.0",
+    "express": "^4.21.2",
+    "open": "^10.1.0"
   }
 }
