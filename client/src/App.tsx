@@ -1,10 +1,9 @@
 // @ts-nocheck
 import { useEffect, useState } from 'react';
-import { Connection, PublicKey } from '@solana/web3.js';
-import { Idl, Program } from '@coral-xyz/anchor';
-import IDL from '../../anchor/mango_v4.json';
-import { MangoV4 } from "../../anchor/mango_v4";
-
+// import { Connection, PublicKey } from '@solana/web3.js';
+// import { Idl, Program } from '@coral-xyz/anchor';
+// import IDL from '../../anchor/mango_v4.json';
+// import { MangoV4 } from "../../anchor/mango_v4";
 
 import ActivityBar from "./components/ActivityBar";
 import Editor from "./components/Editor";
@@ -19,7 +18,9 @@ function App() {
   // useEffect(() => {
   //   (async () => {
   //     try {
-  //       const rpcUrl = (window as any).__RPC_URL__ || "https://mainnet.helius-rpc.com/?api-key=";
+  //       const rpcUrl = (window as any).__RPC_URL__ || import.meta.env.VITE_RPC_URL;
+  //       console.log(rpcUrl);
+  //       console.log(import.meta.env.VITE_RPC_URL);
   //       const connection = new Connection(rpcUrl);
 
   //       // Fetch IDL from server
@@ -172,7 +173,7 @@ function extractAccountsDefinition(idl: Idl): { [key: string]: TypeDef } {
     // If it's a vector type (e.g., { vec: { defined: { name: "TokenEquity" } } })
     if (fieldType.vec) {
       // Resolve inner type. Note: if vec already is a primitive or other form, it still works.
-      return { vec: resolveType(fieldType.vec.defined || fieldType.vec) };
+      return { vec: resolveType(fieldType.vec || fieldType.vec ) };
     }
 
     // If it's an array type (e.g., { array: [ "u8", 5 ] })
@@ -200,6 +201,7 @@ function extractAccountsDefinition(idl: Idl): { [key: string]: TypeDef } {
     if (allTypesMap.has(account.name)) {
       const rawType = allTypesMap.get(account.name);
       accountTypes[account.name] = resolveType(rawType);
+      console.log(rawType);
     }
   });
 

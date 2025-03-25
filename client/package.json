@@ -15,6 +15,7 @@
     "@esbuild-plugins/node-modules-polyfill": "^0.2.2",
     "@primer/octicons-react": "^19.15.1",
     "@solana/web3.js": "^1.98.0",
+    "dotenv": "^16.4.7",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "vite-plugin-node-polyfills": "^0.23.0"
@@ -25,14 +26,14 @@
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
     "eslint": "^9.21.0",
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^15.15.0",
+    "tailwindcss": "^3.4.14",
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.24.1",
-    "tailwindcss": "^3.4.14",
-    "vite": "^6.2.0",
-    "autoprefixer": "^10.4.20"
+    "vite": "^6.2.0"
   }
 }

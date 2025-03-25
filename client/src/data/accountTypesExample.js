@@ -842,7 +842,67 @@ export const accountTypesExample = {
                 "name": "tokens",
                 "type": {
                     "vec": {
-                        "name": "TokenPosition"
+                        "kind": "struct",
+                        "fields": [
+                            {
+                                "name": "indexed_position",
+                                "type": {
+                                    "kind": "struct",
+                                    "fields": [
+                                        {
+                                            "name": "val",
+                                            "type": "i128"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "token_index",
+                                "type": "u16"
+                            },
+                            {
+                                "name": "in_use_count",
+                                "type": "u16"
+                            },
+                            {
+                                "name": "padding",
+                                "type": {
+                                    "array": [
+                                        "u8",
+                                        4
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "previous_index",
+                                "type": {
+                                    "kind": "struct",
+                                    "fields": [
+                                        {
+                                            "name": "val",
+                                            "type": "i128"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "cumulative_deposit_interest",
+                                "type": "f64"
+                            },
+                            {
+                                "name": "cumulative_borrow_interest",
+                                "type": "f64"
+                            },
+                            {
+                                "name": "reserved",
+                                "type": {
+                                    "array": [
+                                        "u8",
+                                        128
+                                    ]
+                                }
+                            }
+                        ]
                     }
                 }
             },
@@ -854,7 +914,75 @@ export const accountTypesExample = {
                 "name": "serum3",
                 "type": {
                     "vec": {
-                        "name": "Serum3Orders"
+                        "kind": "struct",
+                        "fields": [
+                            {
+                                "name": "open_orders",
+                                "type": "pubkey"
+                            },
+                            {
+                                "name": "base_borrows_without_fee",
+                                "type": "u64"
+                            },
+                            {
+                                "name": "quote_borrows_without_fee",
+                                "type": "u64"
+                            },
+                            {
+                                "name": "market_index",
+                                "type": "u16"
+                            },
+                            {
+                                "name": "base_token_index",
+                                "type": "u16"
+                            },
+                            {
+                                "name": "quote_token_index",
+                                "type": "u16"
+                            },
+                            {
+                                "name": "padding",
+                                "type": {
+                                    "array": [
+                                        "u8",
+                                        2
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "highest_placed_bid_inv",
+                                "type": "f64"
+                            },
+                            {
+                                "name": "lowest_placed_ask",
+                                "type": "f64"
+                            },
+                            {
+                                "name": "potential_base_tokens",
+                                "type": "u64"
+                            },
+                            {
+                                "name": "potential_quote_tokens",
+                                "type": "u64"
+                            },
+                            {
+                                "name": "lowest_placed_bid_inv",
+                                "type": "f64"
+                            },
+                            {
+                                "name": "highest_placed_ask",
+                                "type": "f64"
+                            },
+                            {
+                                "name": "reserved",
+                                "type": {
+                                    "array": [
+                                        "u8",
+                                        16
+                                    ]
+                                }
+                            }
+                        ]
                     }
                 }
             },
@@ -866,7 +994,163 @@ export const accountTypesExample = {
                 "name": "perps",
                 "type": {
                     "vec": {
-                        "name": "PerpPosition"
+                        "kind": "struct",
+                        "fields": [
+                            {
+                                "name": "market_index",
+                                "type": "u16"
+                            },
+                            {
+                                "name": "padding",
+                                "type": {
+                                    "array": [
+                                        "u8",
+                                        2
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "settle_pnl_limit_window",
+                                "type": "u32"
+                            },
+                            {
+                                "name": "settle_pnl_limit_settled_in_current_window_native",
+                                "type": "i64"
+                            },
+                            {
+                                "name": "base_position_lots",
+                                "type": "i64"
+                            },
+                            {
+                                "name": "quote_position_native",
+                                "type": {
+                                    "kind": "struct",
+                                    "fields": [
+                                        {
+                                            "name": "val",
+                                            "type": "i128"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "quote_running_native",
+                                "type": "i64"
+                            },
+                            {
+                                "name": "long_settled_funding",
+                                "type": {
+                                    "kind": "struct",
+                                    "fields": [
+                                        {
+                                            "name": "val",
+                                            "type": "i128"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "short_settled_funding",
+                                "type": {
+                                    "kind": "struct",
+                                    "fields": [
+                                        {
+                                            "name": "val",
+                                            "type": "i128"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "bids_base_lots",
+                                "type": "i64"
+                            },
+                            {
+                                "name": "asks_base_lots",
+                                "type": "i64"
+                            },
+                            {
+                                "name": "taker_base_lots",
+                                "type": "i64"
+                            },
+                            {
+                                "name": "taker_quote_lots",
+                                "type": "i64"
+                            },
+                            {
+                                "name": "cumulative_long_funding",
+                                "type": "f64"
+                            },
+                            {
+                                "name": "cumulative_short_funding",
+                                "type": "f64"
+                            },
+                            {
+                                "name": "maker_volume",
+                                "type": "u64"
+                            },
+                            {
+                                "name": "taker_volume",
+                                "type": "u64"
+                            },
+                            {
+                                "name": "perp_spot_transfers",
+                                "type": "i64"
+                            },
+                            {
+                                "name": "avg_entry_price_per_base_lot",
+                                "type": "f64"
+                            },
+                            {
+                                "name": "deprecated_realized_trade_pnl_native",
+                                "type": {
+                                    "kind": "struct",
+                                    "fields": [
+                                        {
+                                            "name": "val",
+                                            "type": "i128"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "oneshot_settle_pnl_allowance",
+                                "type": {
+                                    "kind": "struct",
+                                    "fields": [
+                                        {
+                                            "name": "val",
+                                            "type": "i128"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "recurring_settle_pnl_allowance",
+                                "type": "i64"
+                            },
+                            {
+                                "name": "realized_pnl_for_position_native",
+                                "type": {
+                                    "kind": "struct",
+                                    "fields": [
+                                        {
+                                            "name": "val",
+                                            "type": "i128"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "reserved",
+                                "type": {
+                                    "array": [
+                                        "u8",
+                                        88
+                                    ]
+                                }
+                            }
+                        ]
                     }
                 }
             },
@@ -878,7 +1162,56 @@ export const accountTypesExample = {
                 "name": "perp_open_orders",
                 "type": {
                     "vec": {
-                        "name": "PerpOpenOrder"
+                        "kind": "struct",
+                        "fields": [
+                            {
+                                "name": "side_and_tree",
+                                "type": "u8"
+                            },
+                            {
+                                "name": "padding1",
+                                "type": {
+                                    "array": [
+                                        "u8",
+                                        1
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "market",
+                                "type": "u16"
+                            },
+                            {
+                                "name": "padding2",
+                                "type": {
+                                    "array": [
+                                        "u8",
+                                        4
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "client_id",
+                                "type": "u64"
+                            },
+                            {
+                                "name": "id",
+                                "type": "u128"
+                            },
+                            {
+                                "name": "quantity",
+                                "type": "i64"
+                            },
+                            {
+                                "name": "reserved",
+                                "type": {
+                                    "array": [
+                                        "u8",
+                                        56
+                                    ]
+                                }
+                            }
+                        ]
                     }
                 }
             },
@@ -890,7 +1223,111 @@ export const accountTypesExample = {
                 "name": "token_conditional_swaps",
                 "type": {
                     "vec": {
-                        "name": "TokenConditionalSwap"
+                        "kind": "struct",
+                        "fields": [
+                            {
+                                "name": "id",
+                                "type": "u64"
+                            },
+                            {
+                                "name": "max_buy",
+                                "type": "u64"
+                            },
+                            {
+                                "name": "max_sell",
+                                "type": "u64"
+                            },
+                            {
+                                "name": "bought",
+                                "type": "u64"
+                            },
+                            {
+                                "name": "sold",
+                                "type": "u64"
+                            },
+                            {
+                                "name": "expiry_timestamp",
+                                "type": "u64"
+                            },
+                            {
+                                "name": "price_lower_limit",
+                                "type": "f64"
+                            },
+                            {
+                                "name": "price_upper_limit",
+                                "type": "f64"
+                            },
+                            {
+                                "name": "price_premium_rate",
+                                "type": "f64"
+                            },
+                            {
+                                "name": "taker_fee_rate",
+                                "type": "f32"
+                            },
+                            {
+                                "name": "maker_fee_rate",
+                                "type": "f32"
+                            },
+                            {
+                                "name": "buy_token_index",
+                                "type": "u16"
+                            },
+                            {
+                                "name": "sell_token_index",
+                                "type": "u16"
+                            },
+                            {
+                                "name": "is_configured",
+                                "type": "u8"
+                            },
+                            {
+                                "name": "allow_creating_deposits",
+                                "type": "u8"
+                            },
+                            {
+                                "name": "allow_creating_borrows",
+                                "type": "u8"
+                            },
+                            {
+                                "name": "display_price_style",
+                                "type": "u8"
+                            },
+                            {
+                                "name": "intention",
+                                "type": "u8"
+                            },
+                            {
+                                "name": "tcs_type",
+                                "type": "u8"
+                            },
+                            {
+                                "name": "padding",
+                                "type": {
+                                    "array": [
+                                        "u8",
+                                        6
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "start_timestamp",
+                                "type": "u64"
+                            },
+                            {
+                                "name": "duration_seconds",
+                                "type": "u64"
+                            },
+                            {
+                                "name": "reserved",
+                                "type": {
+                                    "array": [
+                                        "u8",
+                                        88
+                                    ]
+                                }
+                            }
+                        ]
                     }
                 }
             },
