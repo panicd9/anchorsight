@@ -2,8 +2,7 @@
 import { useEffect, useState } from "react";
 import FileTree from "./FileTree";
 // import filesData from "../data";
-import { dataExample as filesData } from "../data/dataExample";
-import { dataExample } from "../data/dataExample";
+import { accountTypesExample as filesData } from "../data/accountTypesExample";
 import useTree from "../hooks/useTree";
 
 function Explorer({ handleActiveEditorTabs, setActiveEditorTabs, activeEditorTabs, setSelectedTabId }) {
@@ -70,15 +69,19 @@ function Explorer({ handleActiveEditorTabs, setActiveEditorTabs, activeEditorTab
           <h3 className="text-xxs uppercase text-vsdark-4">Explorer</h3>
         </div>
         <div className="p-2 overflow-auto h-full">
-          <FileTree
+          {Object.keys(fileTree).map((key) =>(
+            <FileTree
+            key = {key}
+            keyName = {key}
             handleDelete={handleDelete}
             handleAddFile={handleAddFile}
             handleAddFolder={handleAddFolder}
             handleRename={handleRename}
-            fileTree={fileTree}
+            fileTree={fileTree[key]}
             handleCloseTab
             handleActiveEditorTabs={handleActiveEditorTabs}
           />
+          ))}
         </div>
       </div>
     </>
