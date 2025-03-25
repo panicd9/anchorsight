@@ -25,8 +25,11 @@
     "anchorsight": "build/src/index.js"
   },
   "devDependencies": {
+    "@types/node": "^22.7.5",
     "gts": "^6.0.2",
-    "typescript": "^5.6.3",
-    "@types/node": "^22.7.5"
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "tsc": "^2.0.4"
   }
 }
